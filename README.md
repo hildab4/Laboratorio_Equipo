@@ -1,6 +1,4 @@
 # Laboratorio_Equipo4
-# Laboratorio_A01703889
-Laboratorio de GitHub_Adrian Matute
 
 Desenfoque de cuadro simple
 Tiene un efecto promedio dejando asi un ligero desenfoque de la imagen.
