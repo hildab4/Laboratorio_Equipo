@@ -4,16 +4,13 @@ import math
 import cv2
 import matplotlib.pyplot as plt
 
-#Nombre archivo = foto.jpg
 #Filtro = [[-1 0 1]; [-2 0 2]; [-1 0 1]] y edge
-#Filtro = [[-1 -2 -1]; [0 0 0]; [1 2 1]] x edge
-#Filtro = [[-1 -1 -1]; [-1 8 -1]; [-1 -1 -1]] edge
 
 def convolucion (img, kernel):
     #Convierte ambas entradas a matrices con ayuda de numpy
     mat = np.matrix(img)
     kernel = np.matrix(kernel)
-    #Obtiene las dimensiones de la matriz resultante
+    #Obtiene las columnas y renglones a agregar por cada lado de la matriz
     m = math.floor((np.shape(kernel)[0] - 1) / 2)
     n = math.floor((np.shape(kernel)[1] - 1) / 2)
     
@@ -34,7 +31,7 @@ def convolucion (img, kernel):
     #Se imprime la matriz resultante
     print(final)
 
-#Pide al usuario la matriz original (imagen) y el filtro a aplicar
+#Pide al usuario la matriz original y el filtro a aplicar
 mat = input('Matriz ')
 kernel = input('Filtro ')
 #Llama a la función, mandando ambas matrices
