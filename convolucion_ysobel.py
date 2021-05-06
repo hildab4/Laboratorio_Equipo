@@ -34,3 +34,10 @@ def convolucion (img, kernel):
     plt.imshow(final, cmap='gray')
     plt.title("Imagen usando Kernel")
     plt.show()
+    
+    "Pedir la matriz original al usuario (imagen) y el filtro a aplicar"
+imagen = input('Escriba el nombre del archivo: ')
+img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
+kernel = input('Ingrese el filtro: ')
+#Llama a la función, mandando ambas matrices
+convolucion(img, kernel)
