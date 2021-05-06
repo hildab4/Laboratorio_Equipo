@@ -29,9 +29,11 @@ def convolucion (img, kernel):
             #Se le asigna el valor de cero a la variable, para repetir el proceso
             num1 = 0
     #Se imprime la matriz resultante
-    print(final)
+    plt.imshow(final, cmap='gray')
+    plt.title("Imagen usando Kernel con Padding")
+    plt.show()
 
-#Pide al usuario la matriz original y el filtro a aplicar
+#Pide al usuario el archivo de la imagen y el filtro a aplicar
 imagen = input('Nombre archivo ')
 img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
 kernel = '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
