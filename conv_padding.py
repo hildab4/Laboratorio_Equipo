@@ -32,7 +32,8 @@ def convolucion (img, kernel):
     print(final)
 
 #Pide al usuario la matriz original y el filtro a aplicar
-mat = input('Matriz ')
-kernel = input('Filtro ')
+imagen = input('Nombre archivo ')
+img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
+kernel = '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
 #Llama a la función, mandando ambas matrices
-convolucion(mat, kernel)
+convolucion(img, kernel)
