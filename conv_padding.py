@@ -18,6 +18,7 @@ def convolucion (img, kernel):
     final = np.zeros((int(np.shape(mat)[0]), int(np.shape(mat)[1])), dtype = int)
 
     #Se inicializan ambos ciclos for
+    
     num1 = 0
     for i in range (np.shape(mat)[0] - np.shape(kernel)[0] + 1):
         for j in range (np.shape(mat)[1] - np.shape(kernel)[1] + 1):
