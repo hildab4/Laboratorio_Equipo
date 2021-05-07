@@ -36,18 +36,19 @@ def convolucion (img, kernel):
 
 print("1. Sobel edge horizontal  2. Sobel edge vertical   3. Edge detection")
 opcion=input("Elige filtro: ")
-imagen = input('Nombre archivo ')
+imagen = input('Nombre del archivo: ')
 img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
 
 
-while opcion==1:
-    kernel = '[[-1 -2 -1]; [0 0 0]; [1 2 1]]'
+while True:
+    if opcion==1:
+        kernel = '[[-1 -2 -1]; [0 0 0]; [1 2 1]]'
     
-else opcion==2:
-    kernel= '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
+    elif opcion==2:
+        kernel= '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
 
-else:
-    kernel = '[[-1 -1 -1]; [-1 8 -1]; [-1 -1 -1]]'
+    else:
+        kernel = '[[-1 -1 -1]; [-1 8 -1]; [-1 -1 -1]]'
     
 #Llama a la función, mandando ambas matrices
 convolucion(img, kernel)
