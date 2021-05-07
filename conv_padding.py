@@ -1,43 +1,53 @@
-"Se importan las libreias necesarias"
+#Importar librerías
 import numpy as np
 import math
 import cv2
 import matplotlib.pyplot as plt
 
-"Herramientas a utilizar"
-"Nombre del archivo = foto.jpeg"
-"Filtro = [[-1 0 1]; [-2 0 2]; [-1 0 1]] y vertical sobel edge"
+#Filtro = [[-1 0 1]; [-2 0 2]; [-1 0 1]] y edge
 
 def convolucion (img, kernel):
-    "Se convierten las entradas a matrices con numpy"
+    #Convierte ambas entradas a matrices con ayuda de numpy
     mat = np.matrix(img)
     kernel = np.matrix(kernel)
-    "Dimensiones de la matriz resultante"
+    #Obtiene las columnas y renglones a agregar por cada lado de la matriz
     m = math.floor((np.shape(kernel)[0] - 1) / 2)
     n = math.floor((np.shape(kernel)[1] - 1) / 2)
     
-    "Matriz resultante"
+    #Crea la matriz resultante, con valores de cero
     final = np.zeros((int(np.shape(mat)[0]), int(np.shape(mat)[1])), dtype = int)
 
-    "Inicializacion de ciclos"
+    #Se inicializan ambos ciclos for
+    
     num1 = 0
     for i in range (np.shape(mat)[0] - np.shape(kernel)[0] + 1):
         for j in range (np.shape(mat)[1] - np.shape(kernel)[1] + 1):
-            "Se obtiene la matriz del producto punto"
+            #Se obtiene la matriz del producto punto
             num1 += np.multiply((mat[i:i + (np.shape(kernel)[0]),
                                      j:j + (np.shape(kernel)[1])]), kernel)
-            "Se coloca la suma de estos valores en la matriz resultante"
+            #Se coloca la suma de estos valores en la matriz resultante
             final[i + m][j + n] = num1.sum()
-            "Se repite el proceso asignando el cero a la valor de la variable"
+            #Se le asigna el valor de cero a la variable, para repetir el proceso
             num1 = 0
-    "Matriz resultante"
+    #Se imprime la matriz resultante
     plt.imshow(final, cmap='gray')
-    plt.title("Imagen usando Kernel")
+    plt.title("Imagen usando Kernel con Padding")
     plt.show()
-    
-    "Pedir la matriz original al usuario (imagen) y el filtro a aplicar"
-imagen = input('Escriba el nombre del archivo: ')
+
+opcion=input("elige filtro 1 o 2: ")
+imagen = input('Nombre archivo ')
 img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
-kernel = input('Ingrese el filtro: ')
+
+
+while opcion==1:
+    kernel = '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
+    
+else opcion==2:
+    kernel= '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
+
+else:
+    kernel = '[[-1 -1 -1]; [-1 8 -1]; [-1 -1 -1]]'
+    
 #Llama a la función, mandando ambas matrices
 convolucion(img, kernel)
+
