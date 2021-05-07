@@ -39,16 +39,18 @@ opcion=input("Elige filtro: ")
 imagen = input('Nombre del archivo: ')
 img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
 
-
 while True:
-    if opcion==1:
+    if opcion=="1":
         kernel = '[[-1 -2 -1]; [0 0 0]; [1 2 1]]'
+        break
     
-    elif opcion==2:
+    elif opcion=="2":
         kernel= '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
-
+        break
+        
     else:
         kernel = '[[-1 -1 -1]; [-1 8 -1]; [-1 -1 -1]]'
+        break
     
 #Llama a la función, mandando ambas matrices
 convolucion(img, kernel)
