@@ -1,3 +1,7 @@
+#Hilda Beltrán A01251916
+#Alan Razo A01703350
+#Adrián Matute A01703889
+
 #Importar librerías
 import numpy as np
 import math
