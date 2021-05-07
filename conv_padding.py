@@ -34,13 +34,14 @@ def convolucion (img, kernel):
     plt.title("Imagen usando Kernel con Padding")
     plt.show()
 
-opcion=input("elige filtro 1 o 2: ")
+print("1. Sobel edge horizontal  2. Sobel edge vertical   3. Edge detection")
+opcion=input("Elige filtro: ")
 imagen = input('Nombre archivo ')
 img = cv2.imread(imagen, cv2.IMREAD_GRAYSCALE)
 
 
 while opcion==1:
-    kernel = '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
+    kernel = '[[-1 -2 -1]; [0 0 0]; [1 2 1]]'
     
 else opcion==2:
     kernel= '[[-1 0 1]; [-2 0 2]; [-1 0 1]]'
